@@ -14,6 +14,8 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover ;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -24,7 +26,6 @@ a {
 h1,h2,h3,h4 {
     font-family: 'Georgia', serif;
 }
-
 
 h1 {
     font-size: 2.8rem;
@@ -42,6 +43,12 @@ h3 {
     font-size: 1.4rem;
     color: #555;
     margin-bottom: 10px;
+}
+
+.hamburger-menu {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
 }
 
 .navbar{
@@ -166,6 +173,9 @@ h3 {
 }
 
 
+.social-media{
+    background: transparent;
+}
 footer{
     background-color: #ffb62e51;
     color: #333;
@@ -174,6 +184,80 @@ footer{
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+.footer-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.footer-links li{
+    list-style: none;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #d0c944; 
+}
+
+.footer-links a:hover {
+    color: #F58529;
+    font-weight: bold;
+}
+.footer-media ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+}
+
+.footer-media h4{
+    margin-top: 20px;
+    color: #371bc3;
+}
+
+.footer-media li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.footer-media a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.footer-media a:hover {
+    transform: scale(1.2);
+}
+
+.footer-media .fa-facebook:hover {
+    color: #1877F2;
+}
+
+.footer-media .fa-twitter:hover {
+    color: #1DA1F2;
+}
+
+.footer-media .fa-instagram:hover {
+    background: linear-gradient(45deg, #F58529, #D34E6B, #FEDA77, #8134A7, #515BD4);
+
+}
+
+.footer-media .fa-linkedin-in:hover {
+    color: #0077B5;
+}
+
+.footer-media{
+    justify-items: center;
 }
 
 .about-me{
@@ -193,6 +277,10 @@ footer{
     font-size: 1.2rem;
     width: 80%;
     margin: 0 auto;
+}
+
+.video{
+    margin-top: 50px;
 }
 
 .contact {
@@ -348,11 +436,35 @@ footer{
 }
 
 @media screen and (max-width: 768px) {
+    .navbar {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    
     .navbar a {
-        font-size: 1rem;
-        margin: 0 10px;
+            display: none;
+            padding: 10px;
+            width: 100%;
+            text-align: left;
+        }
+
+    .hamburger-menu {
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    
+    .navbar.active a {
+        display: block;
     }
 
+    
+    .navbar a:hover {
+        background-color: blueviolet;
+    }
     .search-form input {
         width: 70%;
     }
@@ -368,8 +480,35 @@ footer{
 
    .post {
        width: 100%;
-       /* Posts will stack vertically on smaller screens */
        margin-bottom: 30px;
+   }
+
+   .footer-links {
+       flex-direction: column;
+       align-items: center;
+   }
+
+   .footer-links li {
+       margin: 10px 0;
+   }
+
+   .footer-media ul {
+       flex-direction: column;
+       align-items: center;
+   }
+
+   .footer-media li {
+       margin: 10px 0;
+   }
+
+   .footer-media a {
+       font-size: 28px;
+       padding: 12px;
+   }
+
+   .footer-media h4 {
+       font-size: 18px;
+       margin-bottom: 15px;
    }
 
     .contact h1 {
@@ -403,10 +542,37 @@ footer{
 }
 
 @media screen and (max-width: 480px) {
-    .navbar a {
-        font-size: 0.9rem;
-        margin: 0 5px;
-    }
+    
+
+        .navbar {
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .navbar a {
+            display: none;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+        }
+    
+        .hamburger-menu {
+            display: block;
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 15px;
+        }
+    
+        .navbar.active a {
+            display: block;
+        }
+    
+    
+        .navbar a:hover {
+            background-color: blueviolet;
+        }
 
     .search-form input {
         width: 60%;
@@ -422,7 +588,7 @@ footer{
 
     .post {
         width: 100%;
-        /* Posts will stack vertically on smaller screens */
+
         margin-bottom: 20px;
     }
 
@@ -430,6 +596,32 @@ footer{
         width: 100%;
     }
 
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links li {
+        margin: 10px 0;
+    }
+
+    .footer-media ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-media li {
+        margin: 10px 0;
+    }
+
+    .footer-media a {
+        font-size: 30px;
+        padding: 15px;
+    }
+
+    .footer-media h4 {
+        font-size: 16px;
+    }
 
     .about-me h1 {
         font-size: 2rem;
